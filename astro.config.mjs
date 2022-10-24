@@ -12,7 +12,7 @@ const m2dxOptions = {
   // autoImports: true,
   // autoImportsFailUnresolved: true,
   componentDirectives: true,
-  // exportComponents: true,
+  exportComponents: true,
   frontmatter: true,
   // includeDirective: true,
   // mdast: true,
@@ -25,9 +25,9 @@ const m2dxOptions = {
 
 export default defineConfig({
   integrations: [
-    // image({
-    //   serviceEntryPoint: "@astrojs/image/sharp",
-    // }),
+    image({
+      serviceEntryPoint: "@astrojs/image/sharp",
+    }),
     mdx({
       remarkPlugins: [directives, [m2dx, m2dxOptions]],
       extendDefaultPlugins: true,

@@ -41,6 +41,7 @@ code {
   color: rgb(var(--accent));
 }
 blockquote img {
+  width: 60px;
   height: 60px;
   aspectratio: 1;
   border-radius: 30px;

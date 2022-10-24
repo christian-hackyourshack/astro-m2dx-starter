@@ -8,3 +8,15 @@ For markdown it is very normal to use relative images, for the Vite-based MDX in
 
 > That is, why I added the "Relative Images" feature to [Astro-M²DX](https://astro-m2dx.netlify.app/options/relative-images/).  
 > ![Shackhacker Christian](christian.png)
+
+## Using Astro's image integration to optimize images
+
+With `@astrojs/image`, there is a great way to optimize your images. However, it does not (yet) play very nicely with our relative images out of the box:
+
+Once you install and activate the integration in your `astro.config.mjs`, you will find broken images with a strange `src` attribute of `[Object object]`. _I could not find out, why this is the case, maybe one of the @astrojs/image maintainers can help me understand this?_
+
+To work around this, you need to explicitly map the `img` to the provided `Image` component. To do this globally, use [Astro-M²DX Export Components Feature](https://astro-m2dx.netlify.app/options/export-components/).
+
+However, you won't get any optimized images from that, because you can't tell @astrojs/image, what you want from your Markdown. Hence, I recommend to write your own Image component based on @astrojs/image, that implements useful default optimizations for your use case.
+
+> 🦊 I usually base this on the `getPicture` function to create responsive images. These components even analyzes the image style (CSS classes) to compute `widths` and `size` hints for the component based on the images metadata.

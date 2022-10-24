@@ -18,15 +18,23 @@ const { title } = Astro.props.frontmatter ?? Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <header>
-      <slot name="header" />
-    </header>
+    {
+      Astro.slots.has("header") && (
+        <header>
+          <slot name="header" />
+        </header>
+      )
+    }
     <main>
       <slot />
     </main>
-    <footer>
-      <slot name="footer" />
-    </footer>
+    {
+      Astro.slots.has("footer") && (
+        <footer>
+          <slot name="footer" />
+        </footer>
+      )
+    }
     <style is:global>
       :root {
         --accent: 124, 58, 237;
