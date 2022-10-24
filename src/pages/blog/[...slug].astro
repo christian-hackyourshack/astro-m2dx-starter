@@ -1,0 +1,36 @@
+---
+import type { MDXInstance } from "astro";
+import { basename, dirname, extname, join, relative } from "path";
+
+interface MDX extends MDXInstance<any> {
+  components?: Record<string, unknown>;
+}
+
+/**
+ * We just mirror the structure of MDX files in the blog directory
+ *
+ * ⚠️ Be careful with route overwrites, if you use this pattern.
+ * 🦊 I use this pattern in production sites only for sections/subroutes,
+ *    where all my content comes from MDX, e.g. `@content/blog/` .
+ */
+export async function getStaticPaths() {
+  const base = join(process.cwd(), "src", "@content", "blog");
+  const posts = await Astro.glob("../../@content/blog/**/*.mdx");
+  return posts.map((mdx) => {
+    let slug = relative(base, dirname(mdx.file));
+    const file = basename(mdx.file, extname(mdx.file));
+    if (file !== "index") {
+      slug = join(slug, file);
+    }
+    return {
+      params: { slug },
+      props: mdx,
+    };
+  });
+}
+
+// Due to the way, how MDX works, we need to pass on the components explicitly
+const { Content, components } = Astro.props as MDX;
+---
+
+<Content components={components} />

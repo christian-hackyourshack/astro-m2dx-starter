@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@astrojs/image': ^0.10.0
   '@astrojs/mdx': ^0.11.4
+  '@types/node': ^18.11.4
   astro: ^1.5.2
   astro-m2dx: ^0.6.1
   remark-directive: ^2.0.1
@@ -15,6 +16,9 @@ dependencies:
   astro-m2dx: 0.6.1
   remark-directive: 2.0.1
   sharp: 0.31.1
+
+devDependencies:
+  '@types/node': 18.11.4
 
 packages:
 
@@ -677,6 +681,10 @@ packages:
     dependencies:
       '@types/unist': 2.0.6
     dev: false
+
+  /@types/node/18.11.4:
+    resolution: {integrity: sha512-BxcJpBu8D3kv/GZkx/gSMz6VnTJREBj/4lbzYOQueUOELkt8WrO6zAcSPmp9uRPEW/d+lUO8QK0W2xnS1hEU0A==}
+    dev: true
 
   /@types/parse5/6.0.3:
     resolution: {integrity: sha512-SuT16Q1K51EAVPz1K29DJ/sXjhSQ0zjvsypYJ6tlwVsRV9jwW5Adq2ch8Dq8kDBCkYnELS7N7VNCSB5nC56t/g==}

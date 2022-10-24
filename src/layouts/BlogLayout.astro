@@ -1,0 +1,14 @@
+---
+import Layout, { Props as LayoutProps } from "./Layout.astro";
+
+export interface Props extends LayoutProps {}
+
+const props = Astro.props.frontmatter ?? Astro.props;
+---
+
+<Layout {...props}>
+  <Fragment slot="header">
+    <a href="/blog">↩ All blog posts</a>
+  </Fragment>
+  <slot />
+</Layout>

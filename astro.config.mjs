@@ -8,20 +8,26 @@ import directives from "remark-directive";
 /** @type {import('astro-m2dx').Options} */
 const m2dxOptions = {
   // activate any required feature here
+  // addOns: [],
+  // autoImports: true,
+  // autoImportsFailUnresolved: true,
   componentDirectives: true,
   // exportComponents: true,
   frontmatter: true,
-  // relativeImages: true,
-  scanTitle: true,
+  // includeDirective: true,
+  // mdast: true,
+  // rawmdx: true,
+  relativeImages: true,
   // scanAbstract: true,
+  scanTitle: true,
   styleDirectives: true,
 };
 
 export default defineConfig({
   integrations: [
-    image({
-      serviceEntryPoint: "@astrojs/image/sharp",
-    }),
+    // image({
+    //   serviceEntryPoint: "@astrojs/image/sharp",
+    // }),
     mdx({
       remarkPlugins: [directives, [m2dx, m2dxOptions]],
       extendDefaultPlugins: true,

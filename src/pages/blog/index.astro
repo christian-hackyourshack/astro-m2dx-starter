@@ -1,0 +1,38 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { basename, dirname, extname, join, relative } from "path";
+
+interface Frontmatter {
+  title: string;
+}
+
+const base = join(process.cwd(), "src", "@content", "blog");
+const posts = await Astro.glob<Frontmatter>("../../@content/blog/**/*.mdx");
+const items = posts.map((mdx) => {
+  let slug = relative(base, dirname(mdx.file));
+  const file = basename(mdx.file, extname(mdx.file));
+  if (file !== "index") {
+    slug = join(slug, file);
+  }
+  return {
+    slug,
+    title: mdx.frontmatter.title,
+  };
+});
+---
+
+<Layout title="Blog | My Site">
+  <Fragment slot="header">
+    <a href="/">↩ Home</a>
+  </Fragment>
+  <h1>My Blog</h1>
+  <ul>
+    {
+      items.map((i) => (
+        <li>
+          <a href={`/blog/${i.slug}`}>{i.title}</a>
+        </li>
+      ))
+    }
+  </ul>
+</Layout>
