@@ -14,7 +14,7 @@
     "@astrojs/image": "^0.10.0",
     "@astrojs/mdx": "^0.11.4",
     "astro": "^1.5.2",
-    "astro-m2dx": "^0.6.1",
+    "astro-m2dx": "^0.6.2",
     "remark-directive": "^2.0.1"
   },
   "devDependencies": {
