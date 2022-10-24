@@ -25,9 +25,7 @@ const m2dxOptions = {
 
 export default defineConfig({
   integrations: [
-    image({
-      serviceEntryPoint: "@astrojs/image/sharp",
-    }),
+    image(),
     mdx({
       remarkPlugins: [directives, [m2dx, m2dxOptions]],
       extendDefaultPlugins: true,

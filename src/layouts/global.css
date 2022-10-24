@@ -46,3 +46,8 @@ blockquote img {
   aspectratio: 1;
   border-radius: 30px;
 }
+/* Ugly fix for Image component not taking class attribute. */
+a.h-16 img {
+  height: 24px;
+  width: 106px;
+}
