@@ -4,14 +4,16 @@ specifiers:
   '@astrojs/image': ^0.10.0
   '@astrojs/mdx': ^0.11.4
   astro: ^1.5.2
-  astro-m2dx: ^0.6.0
+  astro-m2dx: ^0.6.1
+  remark-directive: ^2.0.1
   sharp: ^0.31.1
 
 dependencies:
   '@astrojs/image': 0.10.0_sharp@0.31.1
   '@astrojs/mdx': 0.11.4_rollup@3.2.3
   astro: 1.5.2
-  astro-m2dx: 0.6.0
+  astro-m2dx: 0.6.1
+  remark-directive: 2.0.1
   sharp: 0.31.1
 
 packages:
@@ -778,8 +780,8 @@ packages:
     hasBin: true
     dev: false
 
-  /astro-m2dx/0.6.0:
-    resolution: {integrity: sha512-2WMHR91TLRJ8W7MdjVfc6npLitX+V9p0OVNCvMCQVKDCEPRsghM0jbsetyVGDshFzHyBFroquGz7VUJTuU2jyA==}
+  /astro-m2dx/0.6.1:
+    resolution: {integrity: sha512-qRbnZAWRdnpmC759h8AxJ6dyrb/4S0D8YH4xGHfVrirduan5Fy0VssoP0AeTZtF45BnE+zsSWxoUgb6A5iu0Pg==}
     dependencies:
       acorn: 8.8.0
       estree-util-visit: 1.2.0
